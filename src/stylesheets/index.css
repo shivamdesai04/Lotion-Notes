@@ -256,3 +256,11 @@ a {
   border-top: solid 0.01vw #ccc;
   padding-top: 10px;
 }
+
+.viewTitle {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.viewContent {
+  color: rgba(0, 0, 0, 0.8);
+}

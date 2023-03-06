@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { useOutletContext } from "react-router-dom";
 
 export default function Editor () {
     const [value, setValue] = useState(''); 
+    const [date, setDate] = useState('');
 
     const options = {
         year: "numeric",
@@ -21,6 +23,8 @@ export default function Editor () {
         console.log(formatted);
         return formatted;
     };
+
+    const cardList = useOutletContext();
 
     return (
         <div className="editorComponent">

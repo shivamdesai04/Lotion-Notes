@@ -10,6 +10,7 @@ export default function NoteCard ({id, title, date, content}) {
         <p className="cardPreview">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
             */}
         {/* <Link to={id} element={AppLayout}> */}
+        <Link to={`/${id}`}>
         <div className="cardItems" class="my-3 mx-3 rounded-2xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 shadow-xl">
             <a class="block rounded-xl bg-white p-2 sm:p-3 lg:p-4" href="">
                 <h4>{title}</h4>
@@ -17,6 +18,8 @@ export default function NoteCard ({id, title, date, content}) {
                 <p className="cardPreview">{content}</p>
             </a>
         </div>
+        </Link>
+        
         {/* </Link> */}
         </>
     )

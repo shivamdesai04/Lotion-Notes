@@ -22,8 +22,8 @@ export default function AppLayout() {
   const generateCardContents = () => {
     const defaultCard = {
       id: uuidv4(),
-      title: "Untitled",
-      date: "23-03-04 08:58 PM",
+      title: "Vishnu da dumbo",
+      date: "23-03-04 10:59 PM",
       content: "Shivam ipsum dolor sit amet consectetur, adipisicing elit. LollipopOOO"
     }
     return defaultCard;
@@ -67,7 +67,7 @@ export default function AppLayout() {
           {cardList.map((card)=> {
               return (
               <>
-                <NoteCard key={cardList.length} id={card.id} title={card.title} date={card.date} content={card.content} />
+                <NoteCard key={card.id} id={card.id} title={card.title} date={card.date} content={card.content} />
               </>
               )
             })}
@@ -75,7 +75,7 @@ export default function AppLayout() {
       </div>
       {/* Editing Area */}
       {/* <ViewNotes /> */}
-      <Editor />
+      <Outlet context={cardList}/>
     </div>
     </>
   )

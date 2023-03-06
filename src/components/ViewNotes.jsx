@@ -1,12 +1,22 @@
 import React from "react";
+import { useOutletContext, useParams } from "react-router-dom";
 
 export default function ViewNotes () {
+    const {id} = useParams();
+    console.log(id)
+    const cardList = useOutletContext();
+    console.log("This is View Notes")
+    // console.log(cardList)
+    const activeNote = cardList.find(note => note.id === id);
+    console.log(activeNote.title)
     return (
         <div className="viewComponent">
             <div className="noteHeader">
                 <div className="editorInfo">
-                    <input className="noteTitle" type="text" placeholder="Untitled" />
-                    <input type="datetime-local" className="dateInput"/>
+                    {/* <input className="noteTitle" type="text" placeholder="Untitled" /> */}
+                    <div className="viewTitle"><h3>{activeNote.title}</h3></div>
+                    <div className="viewDate">{activeNote.date}</div>
+                    {/* <input type="datetime-local" className="dateInput"/> */}
                 </div>
                 
                 <div className="editorButtons">
@@ -26,7 +36,7 @@ export default function ViewNotes () {
             </div>
 
             <div className="viewContent">
-                
+                {activeNote.content}
             </div>
 
         </div>

@@ -16,8 +16,8 @@ root.render(
     <Routes>
       <Route element={<AppLayout />} >
         <Route exact path="/" element={<DefaultPage />} ></Route>
-        <Route path="/:noteId" element={<ViewNotes />}></Route>
-        <Route path="/:noteId/edit" element={<Editor />}></Route>
+        <Route path="/:id" element={<ViewNotes />}></Route>
+        <Route path="/:id/edit" element={<Editor />}></Route>
       </Route>
     </Routes>
   </BrowserRouter>
