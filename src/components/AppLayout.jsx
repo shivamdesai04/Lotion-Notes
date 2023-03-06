@@ -23,7 +23,7 @@ export default function AppLayout() {
     const defaultCard = {
       id: uuidv4(),
       title: "Shivam da dumbo",
-      date: "23-03-04 10:59 PM",
+      date: "2023-03-06T15:11",
       content: "Shivam ipsum dolor sit amet consectetur, adipisicing elit. LollipopOOO"
     }
     return defaultCard;

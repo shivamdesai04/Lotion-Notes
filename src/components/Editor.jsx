@@ -4,15 +4,24 @@ import 'react-quill/dist/quill.snow.css';
 import { useOutletContext, Link, useParams } from "react-router-dom";
 
 export default function Editor () {
-    const [value, setValue] = useState(''); 
-    const [date, setDate] = useState('');
-    console.log("This is Edit Notes")
-
     const cardList = useOutletContext();
     const {id} = useParams();
 
     console.log(cardList)
     const editingNote = cardList.find(note => note.id === id);
+    const startTitle = editingNote.title
+    
+    const [title, setTitle] = useState(editingNote.title);
+    const [date, setDate] = useState(editingNote.date);
+    const [value, setValue] = useState(''); 
+
+    const SaveContents = () => {
+        editingNote.title = title;
+        editingNote.date = date;
+        editingNote.value = value;
+        console.log("Saving...")
+    } 
+    
 
     const options = {
         year: "numeric",
@@ -35,14 +44,14 @@ export default function Editor () {
         <div className="editorComponent">
             <div className="noteHeader">
                 <div className="editorInfo">
-                    <input className="noteTitle" type="text" placeholder="Untitled" />
-                    <input type="datetime-local" className="dateInput"/>
+                    <input className="noteTitle" type="text" placeholder="Untitled" value={title} onChange={e => {setTitle(e.target.value)}}/>
+                    <input type="datetime-local" className="dateInput" value={date} onChange={e => {setDate(e.target.value)}}/>
                 </div>
                 
                 <div className="editorButtons">
                     {/* SAVE BUTTON */}
                     <Link to={`/${id}`}>
-                    <button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
+                    <button onClick={() => {SaveContents()}} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
                         <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                             Save
                         </span>
