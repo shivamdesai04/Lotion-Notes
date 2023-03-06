@@ -22,7 +22,7 @@ export default function AppLayout() {
   const generateCardContents = () => {
     const defaultCard = {
       id: uuidv4(),
-      title: "Vishnu da dumbo",
+      title: "Shivam da dumbo",
       date: "23-03-04 10:59 PM",
       content: "Shivam ipsum dolor sit amet consectetur, adipisicing elit. LollipopOOO"
     }
@@ -74,7 +74,7 @@ export default function AppLayout() {
         </div>  
       </div>
       {/* Editing Area */}
-      {/* <ViewNotes /> */}
+      {/* <Editor /> */}
       <Outlet context={cardList}/>
     </div>
     </>

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function NoteCard ({id, title, date, content}) {
-    console.log(id)
+    // console.log(id)
     return (
         <>
         {/* <h4>Title</h4>
@@ -11,8 +11,8 @@ export default function NoteCard ({id, title, date, content}) {
             */}
         {/* <Link to={id} element={AppLayout}> */}
         <Link to={`/${id}`}>
-        <div className="cardItems" class="my-3 mx-3 rounded-2xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 shadow-xl">
-            <a class="block rounded-xl bg-white p-2 sm:p-3 lg:p-4" href="">
+        <div className="cardItems my-3 mx-3 rounded-2xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 shadow-xl">
+            <a className="block rounded-xl bg-white p-2 sm:p-3 lg:p-4" href="">
                 <h4>{title}</h4>
                 <p className="cardDate">{date}</p>
                 <p className="cardPreview">{content}</p>
