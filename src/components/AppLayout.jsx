@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -6,9 +6,17 @@ import { v4 as uuidv4 } from 'uuid';
 import NoteCard from "./NoteCard";
 
 export default function AppLayout() {
-  const[cardList, setCardList] = useState([]);
+  const data = JSON.parse(localStorage.getItem('vishnu'));
+  
+  const[cardList, setCardList] = useState(data || []);
+  useEffect(() => {
+    localStorage.setItem('vishnu', JSON.stringify(cardList));
+  }, [cardList])
+
   const navigation = useNavigate();
   
+  console.log(); // alice
+
   const AddCard = () => {
     const newCard = generateCardContents()
     const temp = [...cardList, newCard]
@@ -55,7 +63,8 @@ export default function AppLayout() {
         </div>
         <div className="sidebarContent">
           {/* <NoteCard /> */}
-          {cardList.map((card)=> {
+          {
+          data.map((card)=> {
               return (
               <>
                 <NoteCard key={card.id} id={card.id} title={card.title} date={card.date} content={card.content} />

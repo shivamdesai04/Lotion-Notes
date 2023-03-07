@@ -1,5 +1,5 @@
 import React from "react";
-import { useOutletContext, useParams, Link } from "react-router-dom";
+import { useOutletContext, useParams, Link, useNavigate } from "react-router-dom";
 
 export default function ViewNotes () {
     const {id} = useParams();
@@ -27,11 +27,16 @@ export default function ViewNotes () {
 
     const activeDate = formatDate(activeNote.date)
 
+    const navigate = useNavigate();
     const deleteNote = () => {
         if (window.confirm("Are you sure you want to delete this item?")) {
-            cardList = cardList.filter(obj => obj.id !== id);
+            const data = JSON.parse(localStorage.getItem('vishnu'));
+            const modifiedData = data.filter(obj => obj.id !== id);
+            const redirect = modifiedData[0].id
+            console.log(redirect)
+            localStorage.setItem('vishnu', JSON.stringify(modifiedData));
+            navigate(`/${redirect}`, {replace : true})
         }
-        console.log(cardList)
     }
 
     return (

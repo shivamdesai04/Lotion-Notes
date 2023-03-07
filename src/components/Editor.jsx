@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { useOutletContext, Link, useParams } from "react-router-dom";
+import { useOutletContext, Link, useParams, useNavigate } from "react-router-dom";
 
 export default function Editor () {
     const cardList = useOutletContext();
@@ -18,11 +18,20 @@ export default function Editor () {
         editingNote.date = date;
         editingNote.content = value;
         console.log("Saving...")
+        localStorage.setItem('vishnu', JSON.stringify(cardList));
     }
 
+    const navigate = useNavigate();
     const deleteNote = () => {
         if (window.confirm("Are you sure you want to delete this item?")) {
-            // cardList = cardList.filter(obj => obj.id !== id);
+            const data = JSON.parse(localStorage.getItem('vishnu'));
+            const modifiedData = data.filter(obj => obj.id !== id);
+            const temp = [...cardList]
+            cardList = temp
+            const redirect = modifiedData[0].id
+            console.log(redirect)
+            localStorage.setItem('vishnu', JSON.stringify(modifiedData));
+            navigate(`/${redirect}`, {replace : true})
         }
     }
 
