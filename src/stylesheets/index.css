@@ -263,7 +263,7 @@ a {
 
 .viewContent {
   /* color: rgba(0, 0, 0, 0.8); */
-  height: 75.9vh;
+  height: 76.9vh !important;
 }
 
 .cardSmallContent {
