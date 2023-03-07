@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route, BrowserRouter, Routes, Outlet } from "react-router-dom";
+import { Route, BrowserRouter, Routes, Outlet, useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from "react-router-dom";
 
@@ -12,19 +12,21 @@ import ViewNotes from "./ViewNotes";
 
 export default function AppLayout() {
   const[cardList, setCardList] = useState([]);
+  const navigation = useNavigate();
+
   const AddCard = () => {
-    // setCardList(cardList.concat(<NoteCard key={cardList.length} />));
-    // console.log(cardList)
-    const temp = [...cardList, generateCardContents()]
+    const newCard = generateCardContents()
+    const temp = [...cardList, newCard]
     setCardList(temp)
+    navigation(`${newCard.id}/edit`, {replace : true})
   }
 
   const generateCardContents = () => {
     const defaultCard = {
       id: uuidv4(),
-      title: "Shivam da dumbo",
-      date: "2023-03-06T15:11",
-      content: "Shivam ipsum dolor sit amet consectetur, adipisicing elit. LollipopOOO"
+      title: "Untitled",
+      date: "",
+      content: "..."
     }
     return defaultCard;
   }
