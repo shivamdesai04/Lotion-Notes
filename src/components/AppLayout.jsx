@@ -1,19 +1,14 @@
 import React, { useState } from "react";
-import { Route, BrowserRouter, Routes, Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
-import { Link } from "react-router-dom";
 
 // Importing Components
-// import Navbar from "./Navbar";
-import Editor from "./Editor";
 import NoteCard from "./NoteCard";
-import DefaultPage from "./DefaultPage";
-import ViewNotes from "./ViewNotes";
 
 export default function AppLayout() {
   const[cardList, setCardList] = useState([]);
   const navigation = useNavigate();
-
+  
   const AddCard = () => {
     const newCard = generateCardContents()
     const temp = [...cardList, newCard]
@@ -30,12 +25,6 @@ export default function AppLayout() {
     }
     return defaultCard;
   }
-
-  // const updateText = (valueToChange, i) => {
-  //   const inputData = [...cardList];
-  //   inputData[i] = onChange.target.value;
-  //   setCardList(inputData)
-  // }
 
   return (
     <>
@@ -75,8 +64,7 @@ export default function AppLayout() {
             })}
         </div>  
       </div>
-      {/* Editing Area */}
-      {/* <Editor /> */}
+
       <Outlet context={cardList}/>
     </div>
     </>

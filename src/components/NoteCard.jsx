@@ -1,4 +1,4 @@
-import React ,{ useState, } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 export default function NoteCard ({id, title, date, content}) {
@@ -27,7 +27,6 @@ export default function NoteCard ({id, title, date, content}) {
                 <h4>{title}</h4>
                 <p className="cardDate">{activeDate}</p>
                 <div className="cardSmallContent" dangerouslySetInnerHTML={{ __html: content }}></div>
-                {/* <p className="cardPreview">{content}</p> */}
             </a>
         </div>
         </Link>

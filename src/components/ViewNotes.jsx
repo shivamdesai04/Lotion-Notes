@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useOutletContext, useParams, Link } from "react-router-dom";
 
 export default function ViewNotes () {
@@ -30,7 +30,6 @@ export default function ViewNotes () {
     const deleteNote = () => {
         if (window.confirm("Are you sure you want to delete this item?")) {
             cardList = cardList.filter(obj => obj.id !== id);
-            // cardList = filteredArray;
         }
         console.log(cardList)
     }
@@ -39,10 +38,8 @@ export default function ViewNotes () {
         <div className="viewComponent">
             <div className="noteHeader">
                 <div className="editorInfo">
-                    {/* <input className="noteTitle" type="text" placeholder="Untitled" /> */}
                     <div className="viewTitle"><h3>{activeNote.title}</h3></div>
                     <div className="viewDate">{activeDate}</div>
-                    {/* <input type="datetime-local" className="dateInput"/> */}
                 </div>
                 
                 <div className="editorButtons">
@@ -62,7 +59,7 @@ export default function ViewNotes () {
                     </button>
                 </div>
             </div>
-            {/* dangerouslySetInnerHTML={{ __html: activeNote.content }} */}
+
             <div id="contentArea" className="viewContent" dangerouslySetInnerHTML={{ __html: activeNote.content }} ></div>
 
         </div>

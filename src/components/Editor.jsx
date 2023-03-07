@@ -7,9 +7,7 @@ export default function Editor () {
     const cardList = useOutletContext();
     const {id} = useParams();
 
-    console.log(cardList)
     const editingNote = cardList.find(note => note.id === id);
-    const startTitle = editingNote.title
     
     const [title, setTitle] = useState(editingNote.title);
     const [date, setDate] = useState(editingNote.date);
@@ -24,7 +22,7 @@ export default function Editor () {
 
     const deleteNote = () => {
         if (window.confirm("Are you sure you want to delete this item?")) {
-            cardList = cardList.filter(obj => obj.id !== id);
+            // cardList = cardList.filter(obj => obj.id !== id);
         }
     }
 
@@ -54,7 +52,7 @@ export default function Editor () {
                 </div>
             </div>
             
-            <ReactQuill theme="snow" value={value} onChange={setValue} />  {/* className name is Quill */}
+            <ReactQuill theme="snow" value={value} onChange={setValue} /> 
         </div>
     )
 }
