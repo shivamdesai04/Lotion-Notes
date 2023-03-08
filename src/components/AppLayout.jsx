@@ -72,7 +72,7 @@ export default function AppLayout() {
           cardList.map((card)=> {
               return (
               <>
-                <NoteCard key={card.id} id={card.id} title={card.title} date={card.date} content={card.content} />
+                <NoteCard key={card.id} cardId={card.id} title={card.title} date={card.date} content={card.content} />
               </>
               )
             })}

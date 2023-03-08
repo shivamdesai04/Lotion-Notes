@@ -269,6 +269,7 @@ a {
 
 .viewTitle h3{
   margin: 0px;
+  font-size: 4vh !important;
 }
 
 .viewContent {
