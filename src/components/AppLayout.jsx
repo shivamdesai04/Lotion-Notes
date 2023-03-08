@@ -22,10 +22,13 @@ export default function AppLayout() {
   }
 
   const generateCardContents = () => {
+    let  now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    let date = now.toISOString().slice(0,16);
     const defaultCard = {
       id: uuidv4(),
       title: "Untitled",
-      date: "",
+      date: date,
       content: ""
     }
     return defaultCard;
