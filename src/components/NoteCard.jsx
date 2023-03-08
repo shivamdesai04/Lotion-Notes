@@ -24,7 +24,7 @@ export default function NoteCard ({id, title, date, content}) {
         <Link to={`/${id}`}>
         <div className="cardItems my-3 mx-3 rounded-2xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 shadow-xl ">
             <a className="block rounded-xl bg-white p-2 sm:p-3 lg:p-4 focus:ring-4 focus:outline-none  dark:focus:ring-pink-800" href="">
-                <h4>{title}</h4>
+                <h4 className="cardContentTitle">{title}</h4>
                 <p className="cardDate">{activeDate}</p>
                 <div className="cardSmallContent" dangerouslySetInnerHTML={{ __html: content }}></div>
             </a>

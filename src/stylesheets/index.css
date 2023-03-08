@@ -261,6 +261,7 @@ a {
 
 .viewTitle {
   color: rgba(0, 0, 0, 0.8);
+  max-width: 50vw;
   overflow: auto;
 }
 
@@ -278,4 +279,10 @@ a {
   max-height: 6vh;
   overflow: hidden; 
   text-overflow: ellipsis;
+}
+
+.cardContentTitle {
+  max-height: 6vh;
+  max-width: 20vw;
+  overflow: auto;
 }
