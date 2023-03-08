@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -6,12 +6,12 @@ import { v4 as uuidv4 } from 'uuid';
 import NoteCard from "./NoteCard";
 
 export default function AppLayout() {
-  // const data = JSON.parse(localStorage.getItem('vishnu'));
+  const data = JSON.parse(localStorage.getItem('notesStorage'));
   console.log("APP LAYOUT")
-  const[cardList, setCardList] = useState([]);
-  // useEffect(() => {
-  //   localStorage.setItem('vishnu', JSON.stringify(cardList));
-  // }, [cardList])
+  const[cardList, setCardList] = useState(data || []);
+  useEffect(() => {
+    localStorage.setItem('notesStorage', JSON.stringify(cardList));
+  }, [cardList])
 
   const navigation = useNavigate();
   

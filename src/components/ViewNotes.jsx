@@ -41,10 +41,12 @@ export default function ViewNotes () {
             if (cardList.length > 1) {
                 const index = findIndex(cardList, id)
                 cardList.splice(index, 1);
+                localStorage.setItem('notesStorage', JSON.stringify(cardList));
                 navigate(`/${cardList[0].id}`, {replace : true})
             }
             else {
                 cardList.splice(0, 1);
+                localStorage.setItem('notesStorage', JSON.stringify(cardList));
                 navigate(`/`, {replace : true})
             }
         }
