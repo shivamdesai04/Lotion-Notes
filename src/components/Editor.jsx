@@ -21,10 +21,26 @@ export default function Editor () {
         localStorage.setItem('vishnu', JSON.stringify(cardList));
     }
 
+    const findIndex = (array, uniquedId) => {
+        for (let i=0 ; i < array.length; i++) {
+            if ((array[i].id) === uniquedId) {
+                return i;
+            }
+        }
+    }
+
     const navigate = useNavigate();
     const deleteNote = () => {
         if (window.confirm("Are you sure you want to delete this item?")) {
-            // navigate(`/${redirect}`, {replace : true})
+            if (cardList.length > 1) {
+                const index = findIndex(cardList, id)
+                cardList.splice(index, 1);
+                navigate(`/${cardList[0].id}`, {replace : true})
+            }
+            else {
+                cardList.splice(0, 1);
+                navigate(`/`, {replace : true})
+            }
         }
     }
 
