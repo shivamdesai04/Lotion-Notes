@@ -19,6 +19,10 @@ export default function NoteCard ({id, title, date, content}) {
     };
     const activeDate = formatDate(date)
 
+    if (content == "") {
+        content = "..."
+    }
+
     return (
         <>
         <Link to={`/${id}`}>

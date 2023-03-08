@@ -26,7 +26,7 @@ export default function AppLayout() {
       id: uuidv4(),
       title: "Untitled",
       date: "",
-      content: "..."
+      content: ""
     }
     return defaultCard;
   }
