@@ -6,12 +6,12 @@ import { v4 as uuidv4 } from 'uuid';
 import NoteCard from "./NoteCard";
 
 export default function AppLayout() {
-  const data = JSON.parse(localStorage.getItem('vishnu'));
-  
-  const[cardList, setCardList] = useState(data || []);
-  useEffect(() => {
-    localStorage.setItem('vishnu', JSON.stringify(cardList));
-  }, [cardList])
+  // const data = JSON.parse(localStorage.getItem('vishnu'));
+  console.log("APP LAYOUT")
+  const[cardList, setCardList] = useState([]);
+  // useEffect(() => {
+  //   localStorage.setItem('vishnu', JSON.stringify(cardList));
+  // }, [cardList])
 
   const navigation = useNavigate();
   
@@ -64,7 +64,7 @@ export default function AppLayout() {
         <div className="sidebarContent">
           {/* <NoteCard /> */}
           {
-          data.map((card)=> {
+          cardList.map((card)=> {
               return (
               <>
                 <NoteCard key={card.id} id={card.id} title={card.title} date={card.date} content={card.content} />

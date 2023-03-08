@@ -3,7 +3,7 @@ import { useOutletContext, useParams, Link, useNavigate } from "react-router-dom
 
 export default function ViewNotes () {
     const {id} = useParams();
-    let cardList = useOutletContext();
+    const cardList = useOutletContext();
     console.log(cardList)
 
     const options = {
@@ -27,15 +27,26 @@ export default function ViewNotes () {
 
     const activeDate = formatDate(activeNote.date)
 
+    const findIndex = (array, uniquedId) => {
+        for (let i=0 ; i < array.length; i++) {
+            if ((array[i].id) === uniquedId) {
+                return i;
+            }
+        }
+    }
+
     const navigate = useNavigate();
     const deleteNote = () => {
         if (window.confirm("Are you sure you want to delete this item?")) {
-            const data = JSON.parse(localStorage.getItem('vishnu'));
-            const modifiedData = data.filter(obj => obj.id !== id);
-            const redirect = modifiedData[0].id
-            console.log(redirect)
-            localStorage.setItem('vishnu', JSON.stringify(modifiedData));
-            navigate(`/${redirect}`, {replace : true})
+            if (cardList.length > 1) {
+                const index = findIndex(cardList, id)
+                cardList.splice(index, 1);
+                navigate(`/${cardList[0].id}`, {replace : true})
+            }
+            else {
+                cardList.splice(0, 1);
+                navigate(`/`, {replace : true})
+            }
         }
     }
 

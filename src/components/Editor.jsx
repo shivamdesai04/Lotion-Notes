@@ -24,14 +24,7 @@ export default function Editor () {
     const navigate = useNavigate();
     const deleteNote = () => {
         if (window.confirm("Are you sure you want to delete this item?")) {
-            const data = JSON.parse(localStorage.getItem('vishnu'));
-            const modifiedData = data.filter(obj => obj.id !== id);
-            const temp = [...cardList]
-            cardList = temp
-            const redirect = modifiedData[0].id
-            console.log(redirect)
-            localStorage.setItem('vishnu', JSON.stringify(modifiedData));
-            navigate(`/${redirect}`, {replace : true})
+            // navigate(`/${redirect}`, {replace : true})
         }
     }
 
