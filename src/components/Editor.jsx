@@ -71,7 +71,7 @@ export default function Editor () {
                 </div>
             </div>
             
-            <ReactQuill theme="snow" value={value} onChange={setValue} /> 
+            <ReactQuill placeholder="Your text here" theme="snow" value={value} onChange={setValue} /> 
         </div>
     )
 }
