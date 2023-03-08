@@ -7,15 +7,12 @@ import NoteCard from "./NoteCard";
 
 export default function AppLayout() {
   const data = JSON.parse(localStorage.getItem('notesStorage'));
-  console.log("APP LAYOUT")
   const[cardList, setCardList] = useState(data || []);
   useEffect(() => {
     localStorage.setItem('notesStorage', JSON.stringify(cardList));
   }, [cardList])
 
   const navigation = useNavigate();
-  
-  console.log(); // alice
 
   const AddCard = () => {
     const newCard = generateCardContents()
@@ -34,12 +31,18 @@ export default function AppLayout() {
     return defaultCard;
   }
 
+  const [hideSidebar, setHideSidebar] = useState(false)
+  const toggleSidebar = () => {
+    setHideSidebar(!hideSidebar);
+  }
+  const classNames = ` sidebar ${hideSidebar ? 'hideSidebar' : ''}`;
+
   return (
     <>
     {/* Navbar */}
     <nav className="navbar">
         <div id="navDivs" className="menuContainer">
-            <div className="menuButton">&#9776;</div>
+            <button id="toggleButton" className="menuButton" onClick={toggleSidebar}>&#9776;</button>
         </div>
 
         <div id="navDivs" className="navHeading">
@@ -51,7 +54,7 @@ export default function AppLayout() {
 
     <div className="contentContainer">
       {/* SideBar */}
-      <div className="sidebar">
+      <div id="targetElement" className={classNames}>
         <div className="sidebarHeader">
           <div id="sidebarItems" className="sidebarHeading"><h3>Notes</h3></div>
           <div id="sidebarItems" className="sidebarPlus">
@@ -78,4 +81,5 @@ export default function AppLayout() {
     </div>
     </>
   )
+  
 }

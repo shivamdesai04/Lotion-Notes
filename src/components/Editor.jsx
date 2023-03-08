@@ -17,7 +17,6 @@ export default function Editor () {
         editingNote.title = title;
         editingNote.date = date;
         editingNote.content = value;
-        console.log("Saving...")
         localStorage.setItem('notesStorage', JSON.stringify(cardList));
     }
 

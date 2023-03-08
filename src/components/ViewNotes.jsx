@@ -4,7 +4,6 @@ import { useOutletContext, useParams, Link, useNavigate } from "react-router-dom
 export default function ViewNotes () {
     const {id} = useParams();
     const cardList = useOutletContext();
-    console.log(cardList)
 
     const options = {
         year: "numeric",
