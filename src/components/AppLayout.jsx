@@ -64,7 +64,6 @@ export default function AppLayout() {
             <button type="buttton" onClick={AddCard}>
               <h3 className="plusButton">+</h3>
             </button>
-            
           </div>
         </div>
         <div className="sidebarContent">
