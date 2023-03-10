@@ -1,2 +1,2 @@
 # About The Project
-![project  preview] (/preview.png)
+![project  preview](images/preview.png)
