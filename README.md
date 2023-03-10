@@ -5,3 +5,7 @@ This is a Web Application built as part of the course content for <a href="https
 This is a preview of the website design:
 
 ![project  preview](images/preview.png)
+
+## Built With
+
+* [![React][React.js]][React-url]
