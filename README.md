@@ -6,6 +6,23 @@ This is a preview of the website design:
 
 ![project  preview](images/preview.png)
 
+## Dependencies
+You will have to run the following items of code to install all required dependencies
+
+```
+npm install react-router-dom
+```
+
+```
+npm install react-quill
+```
+
+```
+npm install uuid
+```
+
+After installing the required dependencies you can run ```npm start``` in the root directory to run the project
+
 ## Built With
 
-* [![React][React.js]][React-url]
+// To be updated soon
